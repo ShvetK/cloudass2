@@ -19,19 +19,21 @@ const s3 = new AWS.S3();
 var bucketName = "shvet-try-1";
 var myKey = 'file.txt';
 
-app.get("/", (req, res) => {
-    res.send("Hello World! My name is Shvet");
-});
+// app.get("/", (req, res) => {
+//     res.send("Hello World! My name is Shvet");
+// });
 
 
-const urlS = 'http://52.91.127.198:8080/start';
+const robURL = 'http://52.91.127.198:8080/start';
 
         axios({
           method: "post",
-          url: urlS,
-          data: {banner: "B00917946",
-          ip: "54.160.102.179"
-        }
+          url: robURL,
+          data:
+            {
+            banner: "B00917946",
+            ip: "54.160.102.179"
+            }
         })
         .then(function(res){
           response.status(200).send(res.data)
