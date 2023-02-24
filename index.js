@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 
-const urlS = 'http://52.91.127.198:8080';
+const urlS = 'http://52.91.127.198:8080/start';
 
         axios({
           method: "post",
