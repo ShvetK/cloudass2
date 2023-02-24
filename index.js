@@ -3,7 +3,7 @@ const axios = require('axios');
 const AWS = require('aws-sdk')
 const fs = require('fs');
 const app = express();
-const port = 80;
+const port = 5001;
 
 app.use(express.json());
 
