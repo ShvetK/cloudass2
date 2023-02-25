@@ -34,7 +34,7 @@ axios({
     ip: "35.153.52.64:5000",
   },
 }).then(function (res) {
-  response.status(200).send(res.data);
+  res.status(200).send(res.data);
 });
 
 // Create a file
