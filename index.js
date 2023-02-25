@@ -45,12 +45,10 @@ app.post("/storedata", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Success!");
+      console.log("File uploaded Successfully", data.Location);
+      const urlR = data.Location;
+      res.status(200).send({ s3uri: urlR });
     }
-    res.status(200);
-    res.json({
-      s3uri: "https://shvet-try-1.s3.amazonaws.com/file.txt",
-    });
   });
 });
 
@@ -76,15 +74,11 @@ app.post("/appenddata", (req, res) => {
       s3.upload(params, function (err, data) {
         if (err) console.log(err, err.stack); // an error occurred
         else {
-          console.log("Success updated.");
-          // successful response
+          console.log("File updated!");
+          res.sendStatus(200);
         }
       });
     }
-    res.status(200);
-    res.json({
-      s3uri: "https://shvet-try-1.s3.amazonaws.com/file.txt",
-    });
   });
 });
 
@@ -98,7 +92,8 @@ app.post("/deletefile", (req, res) => {
     if (err) {
       console.log(err, err.stack); // error
     } else {
-      console.log("Successfully Deleted"); // deleted
+      res.sendStatus(200);
+      console.log("Success!", data);
     }
   });
   res.status(200);
